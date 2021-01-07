@@ -127,10 +127,13 @@ namespace dw2 {
       struct sockaddr_in sin;
       
       socklen_t len = sizeof(sin);
-      if (getsockname(socket->fd, (struct sockaddr *)&sin, &len) == -1)
+      if (getsockname(socket->fd, (struct sockaddr *)&sin, &len) == -1) {
         perror("getsockname");
-      else
+        return -1;
+      }
+      else {
         return ntohs(sin.sin_port);
+      }
     }
   
     SOCKET getFileDescriptor(socket_t sock)

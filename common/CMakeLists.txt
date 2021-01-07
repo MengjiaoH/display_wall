@@ -97,10 +97,6 @@ target_include_directories(dw2_common PUBLIC
 )
 
 target_include_directories(dw2_common PUBLIC
-	$<BUILD_INTERFACE:${TBB_INCLUDE_DIR}>
-)
-
-target_include_directories(dw2_common PUBLIC
 	$<BUILD_INTERFACE:${GLFW_INCLUDE_DIR}>
 )
 
@@ -109,7 +105,8 @@ target_compile_options(dw2_common PRIVATE
   )
 
 target_link_libraries(dw2_common PUBLIC
-  ${TBB_LIBRARIES}
+  TBB::tbb
+  Threads::Threads
   )
 
 if (USE_TURBO_JPEG)

@@ -17,7 +17,7 @@ add_executable(dw2_noMPITestFrameRenderer
   )
 target_link_libraries(dw2_noMPITestFrameRenderer
   dw2_client
-  ${TBB_LIBRARIES}
+  TBB::tbb
   )
 
 if (MPI_FOUND) 
@@ -37,7 +37,7 @@ if (MPI_FOUND)
 	  dw2_client
 	  ${MPI_CXX_LIBRARIES}
 	  ${MPI_CXX_LINK_FLAGS}
-	  ${TBB_LIBRARIES}
+      TBB::tbb
 	  )
 
 	if(BUILD_TEST_OSPRAY)
@@ -53,7 +53,7 @@ if (MPI_FOUND)
 		${OSPRAY_LIBRARIES}
 		${OSPRAY_COMMON_LIBRARY}
 		${OSPRAY_MPI_LIBRARIES}
-		${TBB_LIBRARIES}
+        TBB::tbb
 		)
 	endif()
 
@@ -61,7 +61,7 @@ if (MPI_FOUND)
  target_link_libraries(dw2_testImages
    MPI::MPI_CXX
    dw2_client
-   ${TBB_LIBRARIES}
+   TBB::tbb
  )
 
 	option(BUILD_TEST_LANDINGGEAR "Render Landing Gear Data?" OFF)
@@ -79,7 +79,7 @@ if (MPI_FOUND)
 		${OSPRAY_LIBRARIES}
 		${OSPRAY_COMMON_LIBRARY}
 		${OSPRAY_MPI_LIBRARIES}
-		${TBB_LIBRARIES}
+        TBB::tbb
 		)
 	endif()
 else()

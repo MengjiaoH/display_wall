@@ -48,8 +48,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
 
 find_package(MPI)
 find_package(TBB REQUIRED)
-
-message(STATUS "${TBB_LIBRARIES}")
+find_package(Threads REQUIRED)
 
 # -------------------------------------------------------
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/)
